@@ -10,8 +10,8 @@ services:
     command: --
     environment:
       - HOST=34.93.62.198
-      - USER=postgres
-      - PASSWORD=qO4L7y0f1qMm674K
+      - USER=cargomate
+      - PASSWORD=CargoMate@123
     volumes:
       - ./addons:/mnt/extra-addons
       - ./etc:/etc/odoo
