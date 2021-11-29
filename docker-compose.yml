@@ -9,9 +9,9 @@ services:
     tty: true
     command: --
     environment:
-      - HOST=139.162.27.127
-      - USER=odoo
-      - PASSWORD=Eshaanchoot1
+      - HOST=34.93.62.198
+      - USER=postgres
+      - PASSWORD=qO4L7y0f1qMm674K
     volumes:
       - /etc/timezone:/etc/timezone:ro
       - /etc/localtime:/etc/localtime:ro
