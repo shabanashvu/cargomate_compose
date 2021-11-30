@@ -9,8 +9,8 @@ services:
     tty: true
     command: --
     environment:
-      - HOST=34.93.62.198
-      - USER=cargomate
+      - HOST=10.55.0.3
+      - USER=odoo
       - PASSWORD=CargoMate@123
     volumes:
       - ./addons:/mnt/extra-addons
