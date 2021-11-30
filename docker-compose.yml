@@ -4,8 +4,8 @@ services:
     image: shabanash/cargomate_odoo
     user: root
     ports:
-      - "8069:8069"
-      - "8072:8072" # live chat
+      - "10014:8069"
+      - "20014:8072" # live chat
     tty: true
     command: --
     environment:
