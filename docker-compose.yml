@@ -4,12 +4,12 @@ services:
     image: shabanash/cargomate_odoo
     user: root
     ports:
-      - "10014:8069"
-      - "20014:8072" # live chat
+      - "8069:8069"
+      - "8072:8072" # live chat
     tty: true
     command: --
     environment:
-      - HOST=10.55.0.3
+      - HOST=34.93.62.198
       - USER=cargomate
       - PASSWORD=hiqzy9-cakpIk-qaksuq
     volumes:
