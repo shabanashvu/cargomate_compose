@@ -10,10 +10,9 @@ services:
     command: --
     environment:
       - HOST=35.202.162.16
-      - USER=odoo
-      - PASSWORD=CargoMate@123
+      - USER=cargomate
+      - PASSWORD=hiqzy9-cakpIk-qaksuq
     volumes:
       - ./addons:/mnt/extra-addons
       - ./etc:/etc/odoo
     restart: always             # run as a service
-    
