@@ -9,7 +9,7 @@ services:
     tty: true
     command: --
     environment:
-      - HOST=35.202.162.16
+      - HOST=10.55.0.3
       - USER=cargomate
       - PASSWORD=hiqzy9-cakpIk-qaksuq
     volumes:
