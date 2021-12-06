@@ -38,7 +38,7 @@ class ResPartner(models.Model):
     @api.onchange('agent_type')
     def onchange_agent_type(self):
         if self.agent_type == 'agent' and self.agent:
-            self.supplier = True
+//            self.supplier = True
 
     @api.onchange('parent_id')
     def onchange_parent_id(self):
