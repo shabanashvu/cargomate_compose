@@ -50,11 +50,11 @@
     </record>
 
    <record id="view_res_partner_filter" model="ir.ui.view">
-       <field name="name">res.partner.select</field>
+       <field name="name">res.partner.select.inherit</field>
        <field name="model">res.partner</field>
        <field name="inherit_id" ref="base.view_res_partner_filter"/>
        <field name="arch" type="xml">
-           <filter name="supplier" position="after">
+           <filter name="type_company" position="after">
                <filter string="Agents" name="agent" domain="[('agent', '=', 1)]" help="Agent Partners"/>
            </filter>
         </field>
@@ -66,8 +66,13 @@
        <field name="res_model">res.partner</field>
 <!--       <field name="view_type">form</field>-->
        <field name="view_mode">kanban,tree,form</field>
-       <field name="context">{"search_default_agent": 1, 'default_agent': 1, 'default_customer': 0, 'default_supplier': 1}</field>
+       <field name="context">{"search_default_agent": 1, 'default_agent': 1}</field>
        <field name="search_view_id" ref="view_res_partner_filter"/>
+       <field name="help" type="html">
+           <p class="o_view_nocontent_smiling_face">
+               Create your first agent!
+           </p>
+       </field>
    </record>
 
    <menuitem id="menu_agent_form"

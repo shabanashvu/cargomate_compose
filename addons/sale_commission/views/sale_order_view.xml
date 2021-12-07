@@ -53,7 +53,7 @@
         <field name="arch" type="xml">
             <tree string="Agents" editable="bottom">
                 <field name="agent"
-                       context="{'default_agent': True, 'default_customer': False, 'default_supplier': True}"
+                       context="{'default_agent': True}"
                 />
                 <field name="commission"/>
                 <field name="amount"/>
