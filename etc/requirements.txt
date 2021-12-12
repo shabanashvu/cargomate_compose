@@ -6,3 +6,6 @@
 # then down the docker container ($ docker-compose down) and up it again ($ docker-compose up -d).
 # -----------------------
 # paramiko==2.7.2 # for auto_backup module
+pip3 install requests_oauthlib
+pip3 install requests
+pip3 install oauthlib
