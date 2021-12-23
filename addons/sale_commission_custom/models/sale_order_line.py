@@ -399,6 +399,8 @@ class InvoiceLine(models.Model):
 
 class AccountInvoiceInherit(models.Model):
     _inherit = "account.move"
+    
+    settlement_id = fields.Many2one('sale.commission.settlement','Settlement')
 
     @api.depends('invoice_line_ids.agent_amount')
     def _compute_commission_total(self):
@@ -464,7 +466,8 @@ class AccountInvoiceInherit(models.Model):
                                             'journal_id': journal.id,
                                             'invoice_date': settlement.date_from,
                                             'invoice_line_ids': inv_lines_ids,
-                                            'state':'draft'
+                                            'state':'draft',
+                                            'settlement_id':settlement.id
                                         })
                                         # vendor_bill._onchange_partner_id()
                                         # vendor_bill._onchange_journal_id()
