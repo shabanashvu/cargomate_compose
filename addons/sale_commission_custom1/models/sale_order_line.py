@@ -78,12 +78,7 @@ class SaleOrderMain(models.Model):
             record.commission_total = 0.0
             for line in record.order_line:
                 record.commission_total += line.agent_amount
-                
-    def create_invoice_new(self,grouped=False):
-        context = self._context.copy()
-        res = self.with_context(context)._create_invoices()
-        return res
-    
+
     def _create_invoices(self, grouped=False, final=False, date=None):
         """
         Create the invoice associated to the SO.
@@ -201,6 +196,7 @@ class SaleOrderMain(models.Model):
         # Manage the creation of invoices in sudo because a salesperson must be able to generate an invoice from a
         # sale order without "billing" access rights. However, he should not be able to create an invoice from scratch.
         moves = self.env['account.move'].sudo().with_context(default_move_type='out_invoice', check_move_validity=False).create(invoice_vals_list)
+
         # 4) Some moves might actually be refunds: convert them if the total amount is negative
         # We do this after the moves have been created since we need taxes, etc. to know if the total
         # is actually negative or not
@@ -464,7 +460,6 @@ class AccountInvoiceInherit(models.Model):
                                             'journal_id': journal.id,
                                             'invoice_date': settlement.date_from,
                                             'invoice_line_ids': inv_lines_ids,
-                                            'state':'draft'
                                         })
                                         # vendor_bill._onchange_partner_id()
                                         # vendor_bill._onchange_journal_id()
@@ -484,7 +479,7 @@ class AccountInvoiceInherit(models.Model):
                                         #         'tax_ids': [(5, _, _)],
                                         #     })
                                         #     bill_lines_obj.with_context(check_move_validity=False).create(invoice_line_vals)
-                                        # vendor_bill.action_post()
+                                        vendor_bill.action_post()
                                         settlement.update({
                                             'state': 'invoiced',
                                             'invoice': vendor_bill.id,

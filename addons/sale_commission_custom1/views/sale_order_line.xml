@@ -87,14 +87,6 @@
 <!--                <field name="commission_line"/>-->
                 <field name="agent_amount"/>
             </xpath>
-            <xpath expr="//button[@name=%(sale.action_view_sale_advance_payment_inv)d]" position="attributes">
-            	<attribute name="invisible">1</attribute>
-             </xpath>  
-            <button name="action_quotation_send" position = "before">
-           		<button name="create_invoice_new"
-                        string="Create Inv" type="object" class="btn-primary"
-                       attrs="{'invisible': [('invoice_status', '!=', 'to invoice')]}"/>
-            </button> 
         </field>
     </record>
 
